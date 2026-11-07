@@ -16,12 +16,21 @@
 - Use Xcode’s file-system synchronized groups (buildable folders) for source directories in `project.xcproj`, represented by `"kind": "folder"` with folder-level target membership. Let Xcode discover their contents instead of maintaining explicit file lists. Add individual file references or membership overrides only when needed for exceptions.
 - Avoid tuples.
 - Prefer methods on the type the behavior belongs to. Avoid global functions, but don’t invent a type solely to avoid a standalone function.
-- Avoid `task`, `task(id:`, and `onChange` in SwiftUI. Never use them to "synchronize" state. Instead, layer state appropriately. Avoid multiple sources of truth for state.
 - Never use `@unchecked` or `unsafe`.
-- Never use `@ObservationIgnored`
-- Never use `Binding.init(get:set:)`.
 - Never use semicolons.
 - Never use antiquated GCD, like locks and semaphores.
+
+## SwiftUI
+
+- Avoid `task`, `task(id:`, and `onChange` in SwiftUI. Never use them to "synchronize" state. Instead, layer state appropriately. Avoid multiple sources of truth for state.
+- Keep view initializers cheap. Preserve deferred initialization for private `@State`-owned objects instead of eagerly constructing models or native views whenever a view value is recreated.
+- Factor independently updating UI sections into separate `View` types with explicit inputs. Computed view properties and `@ViewBuilder` helpers do not create independent update boundaries; reserve them for small fragments without that need.
+- Keep view inputs and observation dependencies narrow. Pass only the value-type fields a view needs, and avoid coupling unrelated UI to one aggregate observed property. Preserve state invariants and a single source of truth when changing its shape.
+- Prefer `Equatable` for value types stored in `@Observable` models when equality is meaningful, so unchanged assignments can avoid unnecessary observation updates.
+- Never use `@ObservationIgnored`
+- Never use `Binding.init(get:set:)`.
+- Use `@Entry` for custom environment, focused, transaction, and container values when supported by the deployment target, instead of handwritten key types and accessors. Ensure defaults remain stable across reads.
+- Do not store closures or function values in custom environment or focused values, including inside wrapper types. Pass stable data or model references and expose actions as methods. Framework-provided action types are exempt.
 
 ## Tests
 
