@@ -13,6 +13,7 @@
 - Prefer native Swift APIs and types. Avoid Objective-C and `NS`-prefixed APIs when suitable Swift alternatives exist.
 - Use modern Swift concurrency.
 - When creating an Xcode project, always use the new `xcproj` format, replacing `pbxproj`. `pbxproj` should not be used unless it was there before you started working.
+- Use Xcode’s file-system synchronized groups (buildable folders) for source directories in `project.xcproj`, represented by `"kind": "folder"` with folder-level target membership. Let Xcode discover their contents instead of maintaining explicit file lists. Add individual file references or membership overrides only when needed for exceptions.
 - Avoid tuples.
 - Prefer methods on the type the behavior belongs to. Avoid global functions, but don’t invent a type solely to avoid a standalone function.
 - Avoid `task`, `task(id:`, and `onChange` in SwiftUI. Never use them to "synchronize" state. Instead, layer state appropriately. Avoid multiple sources of truth for state.
