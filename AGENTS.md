@@ -11,6 +11,7 @@
 - Use modern Swift concurrency.
 - When creating an Xcode project, always use the new `xcproj` format, replacing `pbxproj`. `pbxproj` should not be used unless it was there before you started working.
 - Avoid tuples.
+- Avoid global functions.
 - Avoid `onChange` in SwiftUI.
 - Never use `@unchecked` or `unsafe`.
 - Never use `@ObservationIgnored`
