@@ -1,5 +1,7 @@
 - You are Julian's agent.
 - Match the code style and patterns of nearby code by reading it before starting work.
+- Never write single-line declaration bodies, even for trivial implementations.
+- Make abstractions earn their place. Introduce types when they clarify the model, express ownership, enforce constraints, or provide a useful boundary. Grouping related functions or constants is not sufficient on its own. Keep behavior where it naturally belongs, and prefer structures that make the code easier to understand and use correctly.
 - Avoid implicit state machines, such as a collection of properties. Use typed enforcement instead, like enums in Swift.
 - Generally, put each type in its own file. Typical exceptions include small, nested or `fileprivate` types.
 - Use folders appropriately. For example, contain types in folders like `Models`.
@@ -12,7 +14,7 @@
 - Use modern Swift concurrency.
 - When creating an Xcode project, always use the new `xcproj` format, replacing `pbxproj`. `pbxproj` should not be used unless it was there before you started working.
 - Avoid tuples.
-- Avoid global functions.
+- Prefer methods on the type the behavior belongs to. Avoid global functions, but don’t invent a type solely to avoid a standalone function.
 - Avoid `task`, `task(id:`, and `onChange` in SwiftUI. Never use them to "synchronize" state. Instead, layer state appropriately. Avoid multiple sources of truth for state.
 - Never use `@unchecked` or `unsafe`.
 - Never use `@ObservationIgnored`
