@@ -3,7 +3,7 @@
 - Avoid implicit state machines, such as a collection of properties. Use typed enforcement instead, like enums in Swift.
 - Generally, put each type in its own file. Typical exceptions include small, nested or `fileprivate` types.
 - Use folders appropriately. For example, contain types in folders like `Models`.
-- If you need a tool to complete a task, such as a command-line utility, request_user_input to install it. Avoid choosing a worse tool when a better one could be installed. This rule is for tools installed to my system, not packages or other repo/folder-scoped things.
+- If you need a tool to complete a task, such as a command-line utility, request_user_input to install it. Avoid choosing a worse tool when a better one could be installed. This rule is for tools installed to my system, not scoped installations like packages or dependencies for a repo/folder.
 
 ## Swift Projects
 
@@ -13,6 +13,7 @@
 - Avoid tuples.
 - Avoid `onChange` in SwiftUI.
 - Never use `@unchecked` or `unsafe`.
+- Never use `@ObservationIgnored`
 - Never use `Binding.init(get:set:)`.
 - Never use semicolons.
 - Never use antiquated GCD, like locks and semaphores.
