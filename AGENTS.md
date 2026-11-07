@@ -12,7 +12,7 @@
 - When creating an Xcode project, always use the new `xcproj` format, replacing `pbxproj`. `pbxproj` should not be used unless it was there before you started working.
 - Avoid tuples.
 - Avoid global functions.
-- Avoid `onChange` in SwiftUI.
+- Avoid `task`, `task(id:`, and `onChange` in SwiftUI. Never use them to "synchronize" state. Instead, layer state appropriately. Avoid multiple sources of truth for state.
 - Never use `@unchecked` or `unsafe`.
 - Never use `@ObservationIgnored`
 - Never use `Binding.init(get:set:)`.
