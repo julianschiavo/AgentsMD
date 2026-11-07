@@ -8,6 +8,7 @@
 ## Swift Projects
 
 - Follow the Swift API Design Guidelines for code and the Apple Style Guide for copy.
+- Prefer native Swift APIs and types. Avoid Objective-C and `NS`-prefixed APIs when suitable Swift alternatives exist.
 - Use modern Swift concurrency.
 - When creating an Xcode project, always use the new `xcproj` format, replacing `pbxproj`. `pbxproj` should not be used unless it was there before you started working.
 - Avoid tuples.
