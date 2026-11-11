@@ -6,7 +6,7 @@
 - Generally, put each type in its own file. Typical exceptions include small, nested or `fileprivate` types.
 - Use folders appropriately. For example, contain types in folders like `Models`.
 - If you need a tool to complete a task, such as a command-line utility, request_user_input to install it. Avoid choosing a worse tool when a better one could be installed. This rule is for tools installed to my system, not scoped installations like packages or dependencies for a repo/folder.
-- Use regular branch-based PRs on Gitea, not AGit (`refs/for/*`). For stacks, keep branches in the same repository and target each parent PR’s head branch so Gitea can show the stack.
+- Use `gt pr create` without `--agit` to create regular branch-based Gitea PRs. For stacks, keep branches in the same repository and set `--base` to the parent PR’s head branch.
 
 ## Swift Projects
 
